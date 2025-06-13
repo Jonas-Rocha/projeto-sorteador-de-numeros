@@ -7,6 +7,46 @@
     <title>Sorteador de números</title>
   </head>
   <body>
+    <header>
+      <div id="HEADER_DIV">
+        <h1 id="HEADER_TITLE">NUMBERS</h1>
+      </div>
+    </header>
+    <main>
+      <section id="LEFT_SECTION">
+        <span>ONLINE - GRATUITO</span>
+        <h1>SORTEADOR DE NÚMEROS</h1>
+        <h3>Como funciona o sorteador de números?</h3>
+        <p>
+          O sorteador utiliza um algoritmo de geração aleatória para criar
+          números dentro do intervalo especificado pelo usuário.
+        </p>
+        <h3>Posso escolher o intervalo dos números?</h3>
+        <p>
+          Sim, você pode definir os valores mínimo e máximo para o intervalo dos
+          números sorteados.
+        </p>
+      </section>
+      <section id="RIGHT_SECTION">
+        <form>
+          <h2>QUERO SORTEAR:</h2>
+          <p>
+            defina o intervalo e a quantidade de números, clique em "Sortear" e
+            veja os resultados na tela. É rápido e fácil!
+          </p>
+          <label for="numbers">NÚMEROS</label>
+          <input type="text" id="numbers" />
+          <label for="start_number">DE</label>
+          <input type="text" id="start_number" />
+          <label for="end_number">À</label>
+          <input type="text" id="end_number" />
+          <div class="toggle-button">
+            <input type="checkbox" />
+          </div>
+          <button type="submit" class="submit">Sortear</button>
+        </form>
+      </section>
+    </main>
     <script src="script.js"></script>
   </body>
 </html>

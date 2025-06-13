@@ -5,6 +5,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 :root {
@@ -51,4 +52,43 @@
   --font-text: "Roboto Flex", sans-serif;
 }
 
+/* Estilizando e definindo o comportamento do body */
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background: url("img/Shapes.png"),
+    linear-gradient(
+      to bottom,
+      var(--background-primary) 20%,
+      var(--background-secondary) 80%
+    );
 
+  min-height: 100vh;
+}
+
+header {
+  display: flex;
+  justify-content: flex-end;
+  height: 203px;
+}
+
+header > div > h1 {
+  color: var(--content-primary);
+}
+
+#HEADER_DIV {
+  display: flex;
+  align-items: center;
+  margin-top: 76px;
+  width: 1024px;
+  height: 38px;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 412px;
+  width: 1098px;
+}
