@@ -1,52 +1,61 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Sorteador de números</title>
+    <title>Document</title>
   </head>
   <body>
-    <header>
-      <div id="HEADER_DIV">
-        <h1 id="HEADER_TITLE">NUMBERS</h1>
-      </div>
-    </header>
-    <main>
-      <section id="LEFT_SECTION">
-        <span>ONLINE - GRATUITO</span>
-        <h1>SORTEADOR DE NÚMEROS</h1>
-        <h3>Como funciona o sorteador de números?</h3>
-        <p>
-          O sorteador utiliza um algoritmo de geração aleatória para criar
-          números dentro do intervalo especificado pelo usuário.
-        </p>
-        <h3>Posso escolher o intervalo dos números?</h3>
-        <p>
-          Sim, você pode definir os valores mínimo e máximo para o intervalo dos
-          números sorteados.
-        </p>
-      </section>
-      <section id="RIGHT_SECTION">
-        <form>
+    <section>
+      <div id="box-desktop">
+        <div id="box-top-both">
+          <span>ONLINE - GRATUITO</span>
+          <h1>SORTEADOR DE NÚMEROS</h1>
+        </div>
+        <div id="section-box-bottom">
+          <h3>Como funciona o sorteador de números?</h3>
+          <p>
+            O sorteador utiliza um algoritimo de geração aleatória para criar
+            números dentro do intervalo especificado pelo usuário.
+          </p>
+          <h3>Posso escolher o intervalo dos números?</h3>
+          <p>
+            Sim, você pode definir os valores minimo e máximo para o intervalo
+            dos números sorteados.
+          </p>
+        </div>
+        <div id="section-box-mid-desktop">
           <h2>QUERO SORTEAR:</h2>
           <p>
-            defina o intervalo e a quantidade de números, clique em "Sortear" e
+            Defina o intervalo e a quantidade de números, clique em "Sortear" e
             veja os resultados na tela. É rápido e fácil!
           </p>
           <label for="numbers">NÚMEROS</label>
-          <input type="text" id="numbers" />
-          <label for="start_number">DE</label>
-          <input type="text" id="start_number" />
-          <label for="end_number">À</label>
-          <input type="text" id="end_number" />
-          <div class="toggle-button">
-            <input type="checkbox" />
-          </div>
-          <button type="submit" class="submit">Sortear</button>
-        </form>
-      </section>
-    </main>
-    <script src="script.js"></script>
+          <input type="text" name="" id="numbers" />
+          <label for="numbersDe">DE</label>
+          <input type="text" name="" id="numbersDe" />
+          <label for="numbersA">À</label>
+          <input type="text" name="" id="numbersA" />
+          <input type="checkbox" />
+          <button type="submit">Sortear ></button>
+        </div>
+      </div>
+      <div id="section-box-middle-mobile">
+        <h2>QUERO SORTEAR:</h2>
+        <p>
+          Defina o intervalo e a quantidade de números, clique em "Sortear" e
+          veja os resultados na tela. É rápido e fácil!
+        </p>
+        <label for="numbers">NÚMEROS</label>
+        <input type="text" name="" id="numbers" />
+        <label for="numbersDe">DE</label>
+        <input type="text" name="" id="numbersDe" />
+        <label for="numbersA">À</label>
+        <input type="text" name="" id="numbersA" />
+        <input type="checkbox" />
+        <button type="submit">Sortear ></button>
+      </div>
+    </section>
   </body>
 </html>
