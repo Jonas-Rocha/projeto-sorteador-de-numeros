@@ -9,7 +9,8 @@ const toggle = document.getElementById("toggle");
 numbers.addEventListener("input", () => {
   let valueNumbers = numbers.value.replace(/\D/g, "");
 
-  valueNumbers = Number(valueNumbers);
+  numbers.value = valueNumbers;
+
   console.log(valueNumbers);
 
   return valueNumbers;
