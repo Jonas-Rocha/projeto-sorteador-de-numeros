@@ -90,6 +90,7 @@ header > h1 {
 /* Estilizando o main */
 
 main {
+  padding: 10px;
   max-width: 319px;
 }
 
@@ -117,6 +118,7 @@ main {
 /* Estilizando o bloco do meio*/
 
 #middle-section {
+  width: 100%;
   margin-bottom: 80px;
 }
 
@@ -132,9 +134,6 @@ main {
   font-size: 14px;
   margin-bottom: 40px;
   color: var(--content-tertiary);
-}
-
-#middle-section > form {
 }
 
 .all-input {
@@ -274,4 +273,44 @@ main {
   font-family: var(--font-mono);
   font-size: 12px;
   margin-bottom: 36px;
+}
+
+/* Estilizando o novo middle-section */
+
+.new-middle-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new-middle-section-submit {
+  width: 100%;
+  margin-bottom: 70px;
+}
+
+.new-middle-section-top-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.new-middle-section-top-box > h2 {
+  color: var(--content-primary);
+  font-family: var(--font-mono);
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.new-middle-section-top-box > span {
+  color: var(--content-secondary);
+  font-family: var(--font-mono);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.new-middle-section > .resultados {
+  width: 100%;
+  background-color: white;
 }
