@@ -310,7 +310,47 @@ main {
   font-weight: bold;
 }
 
-.new-middle-section > .resultados {
+.box-results {
   width: 100%;
-  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.results {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  color: var(--content-brand);
+  margin-top: 40px;
+  margin-bottom: 40px;
+  overflow-y: scroll;
+  max-height: 300px;
+  max-width: 200px;
+}
+
+.results::-webkit-scrollbar {
+  width: 8px;
+}
+
+.results::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.results::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+}
+
+.results > h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 48px;
+  font-weight: bold;
+  height: 100px;
+  width: 84px;
 }
