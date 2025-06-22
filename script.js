@@ -1,8 +1,17 @@
+// Seleciona o elemento <main> do HTML
+const main = document.querySelector("main");
+
 // Seleciona o elemento <form> do HTML
 const form = document.querySelector("form");
 
 // Seleciona todos os elementos com a classe "submit" (pode ser mais de um)
 const submit = document.getElementsByClassName("submit");
+
+// Seleciona o primeiro submit
+const firstSubmit = document.getElementById("first-submit");
+
+// Seleciona o segunto submit (o submit criado com js);
+const newSubmit = document.getElementById("new-submit");
 
 // Seleciona o input com id "numbers" (quantidade de números a gerar)
 const numbers = document.getElementById("numbers");
@@ -62,13 +71,6 @@ function numbersResult() {
   console.log(generatedNumbers);
 }
 
-
-function createNewMiddleSection() {
-
-}
-
-
-
 form.addEventListener("submit", (event) => {
   // Evita que a página recarregue ao enviar o formulário
   event.preventDefault();
@@ -79,3 +81,32 @@ form.addEventListener("submit", (event) => {
   // Esconde a seção do meio da página (onde estão os inputs)
   middleSection.setAttribute("style", "display: none;");
 });
+
+function createNewMiddleSection() {
+  // Cria o Top-box do new-middle-section
+  const newMiddleSection = document.createElement("section");
+  newMiddleSection.setAttribute("id", "new-middle-section");
+
+  const newMiddleSectionTopBox = document.createElement("div");
+  newMiddleSectionTopBox.setAttribute("class", "new-middle-section-top-box");
+
+  const newMiddleSectionTopBoxH1 = document.createElement("h1");
+  newMiddleSectionTopBoxH1.textContent = "RESULTADO DO SORTEIO";
+
+  const newMiddleSectionTopBoxSpan = document.createElement("span");
+  newMiddleSectionTopBoxSpan.textContent = "1° RESULTADO";
+
+  // Cria a div de resultados do new-middle-section
+  const boxResults = document.createElement("div");
+  boxResults.setAttribute("class", "box-results");
+
+  const results = document.createElement("div");
+  results.setAttribute("class", "results");
+
+  newMiddleSection.append(newMiddleSectionTopBox, boxResults);
+  newMiddleSectionTopBox.append(
+    newMiddleSectionTopBoxH1,
+    newMiddleSectionTopBoxSpan
+  );
+  boxResults.append(results);
+}
