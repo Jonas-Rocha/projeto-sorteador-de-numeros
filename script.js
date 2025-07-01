@@ -69,6 +69,16 @@ function numbersResult() {
 
   // Mostra os números no console
   console.log(generatedNumbers);
+  return generatedNumbers;
+}
+
+function createNumbersResult(generatedNumbers) {
+  let results = document.querySelector(".results");
+  generatedNumbers.forEach((generatedNumbers) => {
+    let newNumber = document.createElement("h1");
+    newNumber.textContent = generatedNumbers;
+    results.append(newNumber);
+  });
 }
 
 form.addEventListener("submit", (event) => {
@@ -76,10 +86,15 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // Executa a função que gera os números
-  numbersResult();
+  const numbersResultVar = numbersResult();
 
   // Esconde a seção do meio da página (onde estão os inputs)
   middleSection.setAttribute("style", "display: none;");
+
+  const newMiddleSection = createNewMiddleSection();
+  main.insertBefore(newMiddleSection, main.children[1]);
+
+  createNumbersResult(numbersResultVar);
 });
 
 function createNewMiddleSection() {
@@ -90,7 +105,7 @@ function createNewMiddleSection() {
   const newMiddleSectionTopBox = document.createElement("div");
   newMiddleSectionTopBox.setAttribute("class", "new-middle-section-top-box");
 
-  const newMiddleSectionTopBoxH1 = document.createElement("h1");
+  const newMiddleSectionTopBoxH1 = document.createElement("h2");
   newMiddleSectionTopBoxH1.textContent = "RESULTADO DO SORTEIO";
 
   const newMiddleSectionTopBoxSpan = document.createElement("span");
@@ -103,10 +118,13 @@ function createNewMiddleSection() {
   const results = document.createElement("div");
   results.setAttribute("class", "results");
 
-  newMiddleSection.append(newMiddleSectionTopBox, boxResults);
   newMiddleSectionTopBox.append(
     newMiddleSectionTopBoxH1,
     newMiddleSectionTopBoxSpan
   );
+  newMiddleSection.append(newMiddleSectionTopBox, boxResults);
+
   boxResults.append(results);
+
+  return newMiddleSection;
 }
