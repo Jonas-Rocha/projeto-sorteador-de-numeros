@@ -71,11 +71,11 @@ function numbersResult() {
   return generatedNumbers;
 }
 
-function createNumbersResult(generatedNumbers) {
-  let results = document.querySelector(".results");
-  generatedNumbers.forEach((generatedNumbers) => {
+function createNumbersResult(numbersResult) {
+    let results = document.querySelector(".results");
+    numbersResult.forEach((generatedNumber) => {
     let newNumber = document.createElement("h1");
-    newNumber.textContent = generatedNumbers;
+    newNumber.textContent = generatedNumber;
     results.append(newNumber);
   });
 }
@@ -84,12 +84,21 @@ form.addEventListener("submit", (event) => {
   // Evita que a página recarregue ao enviar o formulário
   event.preventDefault();
 
+  if (numbers.value === "" || numbers.value == "0" || numbersA.value === "" || numbersA.value == "0") {
+      alert("Erro! Por favor, forneça os números.")
+  }
+  else {
   // Esconde a seção do meio da página (onde estão os inputs)
   middleSection.setAttribute("style", "display: none;");
   
   main.insertBefore(createNewMiddleSection(), main.children[1]);
 
   createNumbersResult(numbersResult());
+  }
+
+
+
+  
 });
 
 function createNewMiddleSection() {
