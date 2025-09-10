@@ -86,15 +86,14 @@ form.addEventListener("submit", (event) => {
   event.preventDefault();
 
   // Executa a função que gera os números
-  const numbersResultVar = numbersResult();
+  numbersResult();
 
   // Esconde a seção do meio da página (onde estão os inputs)
   middleSection.setAttribute("style", "display: none;");
+  
+  main.insertBefore(createNewMiddleSection(), main.children[1]);
 
-  const newMiddleSection = createNewMiddleSection();
-  main.insertBefore(newMiddleSection, main.children[1]);
-
-  createNumbersResult(numbersResultVar);
+  createNumbersResult(numbersResult());
 });
 
 function createNewMiddleSection() {
