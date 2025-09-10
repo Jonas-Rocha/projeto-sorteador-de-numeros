@@ -138,17 +138,29 @@ function createNumbersResult(numbersResult) {
 form.addEventListener("submit", (event) => {
   // Evita que a página recarregue ao enviar o formulário
   event.preventDefault();
-
-  if (numbers.value === "" || numbers.value == "0" || numbersA.value === "" || numbersA.value == "0") {
+  const valueNumbers = Number(numbers.value)
+  const valueNumbersA = Number(numbersA.value)
+  if (valueNumbers === "" || valueNumbers === 0 || valueNumbersA === "" || valueNumbersA === 0) {
       alert("Erro! Por favor, forneça os números.")
+  } else if (valueNumbersA > 999) {
+      alert("Erro!")
+
   }
   else {
   // Esconde a seção do meio da página (onde estão os inputs)
   middleSection.setAttribute("style", "display: none;");
   
+  // Cria e adiciona a nova MiddleSection no document
   main.insertBefore(createNewMiddleSection(), main.children[1]);
+  
+  // Cria o Visual e os números gerados dentro da nova MiddleSection
   createNumbersResult(numbersResult());
+
+
+  // Captura o novo botão criado dentro da nova MiddleSection
   const newSubmit = document.getElementById("new-submit");
+
+  // captura o click no novo botão e gera novos números
   newSubmit.addEventListener("click", (event) => {
     event.preventDefault()
     createNumbersResult(numbersResult())
