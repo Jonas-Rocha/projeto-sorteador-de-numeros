@@ -10,9 +10,6 @@ const submit = document.getElementsByClassName("submit");
 // Seleciona o primeiro submit
 const firstSubmit = document.getElementById("first-submit");
 
-// Seleciona o segunto submit (o submit criado com js);
-const newSubmit = document.getElementById("new-submit");
-
 // Seleciona o input com id "numbers" (quantidade de números a gerar)
 const numbers = document.getElementById("numbers");
 
@@ -28,79 +25,7 @@ const toggle = document.getElementById("toggle");
 // Seleciona a seção do meio da página (possivelmente onde estão os inputs)
 const middleSection = document.getElementById("middle-section");
 
-// Quando o usuário digitar no input "numbers"
-numbers.addEventListener("input", () => {
-  // Remove qualquer caractere que não seja número
-  let valueNumbers = numbers.value.replace(/\D/g, "");
-
-  // Atualiza o valor no input com o número tratado
-  numbers.value = Number(valueNumbers);
-});
-
-// Mesmo processo para o input "numbersDe"
-numbersDe.addEventListener("input", () => {
-  let valueNumbersDe = numbersDe.value.replace(/\D/g, "");
-  numbersDe.value = Number(valueNumbersDe);
-});
-
-// Mesmo processo para o input "numbersA"
-numbersA.addEventListener("input", () => {
-  let valueNumbersA = numbersA.value.replace(/\D/g, "");
-  numbersA.value = Number(valueNumbersA);
-});
-
-function numbersResult() {
-  // Converte os valores dos inputs para número
-  const quantity = Number(numbers.value); // Quantos números gerar
-  const minimum = Number(numbersDe.value); // Valor mínimo do intervalo
-  const maximum = Number(numbersA.value); // Valor máximo do intervalo
-
-  // Array para armazenar os números gerados
-  const generatedNumbers = [];
-
-  // Laço que gera os números
-  for (let index = 0; index < quantity; index++) {
-    // Gera um número aleatório entre mínimo e máximo
-    const random = Math.floor(Math.random() * (maximum - minimum)) + minimum;
-
-    // Adiciona o número ao array
-    generatedNumbers.push(random);
-  }
-
-  // Mostra os números no console
-  return generatedNumbers;
-}
-
-function createNumbersResult(numbersResult) {
-    let results = document.querySelector(".results");
-    numbersResult.forEach((generatedNumber) => {
-    let newNumber = document.createElement("h1");
-    newNumber.textContent = generatedNumber;
-    results.append(newNumber);
-  });
-}
-
-form.addEventListener("submit", (event) => {
-  // Evita que a página recarregue ao enviar o formulário
-  event.preventDefault();
-
-  if (numbers.value === "" || numbers.value == "0" || numbersA.value === "" || numbersA.value == "0") {
-      alert("Erro! Por favor, forneça os números.")
-  }
-  else {
-  // Esconde a seção do meio da página (onde estão os inputs)
-  middleSection.setAttribute("style", "display: none;");
-  
-  main.insertBefore(createNewMiddleSection(), main.children[1]);
-
-  createNumbersResult(numbersResult());
-  }
-
-
-
-  
-});
-
+// Cria toda a estrutura visual do resultado
 function createNewMiddleSection() {
   // Cria o Top-box do new-middle-section
   const newMiddleSection = document.createElement("section");
@@ -152,11 +77,89 @@ function createNewMiddleSection() {
 
   newMiddleSection.append(newMiddleSectionTopBox, boxResults, boxSubmit);
 
-
-
-  
-
-
-
   return newMiddleSection;
 }
+
+// Quando o usuário digitar no input "numbers"
+numbers.addEventListener("input", () => {
+  // Remove qualquer caractere que não seja número
+  let valueNumbers = numbers.value.replace(/\D/g, "");
+
+  // Atualiza o valor no input com o número tratado
+  numbers.value = Number(valueNumbers);
+});
+
+// Mesmo processo para o input "numbersDe"
+numbersDe.addEventListener("input", () => {
+  let valueNumbersDe = numbersDe.value.replace(/\D/g, "");
+  numbersDe.value = Number(valueNumbersDe);
+});
+
+// Mesmo processo para o input "numbersA"
+numbersA.addEventListener("input", () => {
+  let valueNumbersA = numbersA.value.replace(/\D/g, "");
+  numbersA.value = Number(valueNumbersA);
+});
+
+// Gera os números
+function numbersResult() {
+  // Converte os valores dos inputs para número
+  const quantity = Number(numbers.value); // Quantos números gerar
+  const minimum = Number(numbersDe.value); // Valor mínimo do intervalo
+  const maximum = Number(numbersA.value); // Valor máximo do intervalo
+
+  // Array para armazenar os números gerados
+  const generatedNumbers = [];
+
+  // Laço que gera os números
+  for (let index = 0; index < quantity; index++) {
+    // Gera um número aleatório entre mínimo e máximo
+    const random = Math.floor(Math.random() * (maximum - minimum)) + minimum;
+
+    // Adiciona o número ao array
+    generatedNumbers.push(random);
+  }
+
+  // Mostra os números no console
+  return generatedNumbers;
+}
+
+// Cria o visual dos números gerados
+function createNumbersResult(numbersResult) {
+    let results = document.querySelector(".results");
+    numbersResult.forEach((generatedNumber) => {
+    let newNumber = document.createElement("h1");
+    newNumber.textContent = generatedNumber;
+    results.append(newNumber);
+  });
+}
+
+// Captura o submit
+form.addEventListener("submit", (event) => {
+  // Evita que a página recarregue ao enviar o formulário
+  event.preventDefault();
+
+  if (numbers.value === "" || numbers.value == "0" || numbersA.value === "" || numbersA.value == "0") {
+      alert("Erro! Por favor, forneça os números.")
+  }
+  else {
+  // Esconde a seção do meio da página (onde estão os inputs)
+  middleSection.setAttribute("style", "display: none;");
+  
+  main.insertBefore(createNewMiddleSection(), main.children[1]);
+  createNumbersResult(numbersResult());
+  const newSubmit = document.getElementById("new-submit");
+  newSubmit.addEventListener("click", (event) => {
+    event.preventDefault()
+    createNumbersResult(numbersResult())
+  })
+  }
+});
+
+
+
+
+
+
+
+
