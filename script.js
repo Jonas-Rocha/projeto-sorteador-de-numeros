@@ -68,7 +68,6 @@ function numbersResult() {
   }
 
   // Mostra os números no console
-  console.log(generatedNumbers);
   return generatedNumbers;
 }
 
@@ -84,9 +83,6 @@ function createNumbersResult(generatedNumbers) {
 form.addEventListener("submit", (event) => {
   // Evita que a página recarregue ao enviar o formulário
   event.preventDefault();
-
-  // Executa a função que gera os números
-  numbersResult();
 
   // Esconde a seção do meio da página (onde estão os inputs)
   middleSection.setAttribute("style", "display: none;");
@@ -117,13 +113,41 @@ function createNewMiddleSection() {
   const results = document.createElement("div");
   results.setAttribute("class", "results");
 
+  
+  // Cria o container do botão again
+  const boxSubmit = document.createElement("div");
+  boxSubmit.setAttribute("class", "box-submit");
+
+  // Cria o bottão
+  const newButton = document.createElement("button");
+  newButton.setAttribute("type", "submit");
+  newButton.setAttribute("class", "submit new-middle-section-submit");
+  newButton.setAttribute("id", "new-submit");
+  newButton.innerText = "SORTEAR NOVAMENTE"
+
+  const newButtonImg = document.createElement("img");
+  newButtonImg.setAttribute("src", "img/again.png")
+  newButtonImg.setAttribute("alt", "again")
+
+
+  boxSubmit.append(newButton);
+  newButton.append(newButtonImg);
+
+
   newMiddleSectionTopBox.append(
     newMiddleSectionTopBoxH1,
     newMiddleSectionTopBoxSpan
   );
-  newMiddleSection.append(newMiddleSectionTopBox, boxResults);
 
   boxResults.append(results);
+
+  newMiddleSection.append(newMiddleSectionTopBox, boxResults, boxSubmit);
+
+
+
+  
+
+
 
   return newMiddleSection;
 }
