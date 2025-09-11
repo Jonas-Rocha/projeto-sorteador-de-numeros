@@ -25,6 +25,9 @@ const toggle = document.getElementById("toggle");
 // Seleciona a seção do meio da página (possivelmente onde estão os inputs)
 const middleSection = document.getElementById("middle-section");
 
+// Seleciona os números do resultado
+let animationSize;
+
 // Cria toda a estrutura visual do resultado
 function createNewMiddleSection() {
   // Cria o Top-box do new-middle-section
@@ -127,11 +130,18 @@ function numbersResult() {
 // Cria o visual dos números gerados
 function createNumbersResult(numbersResult) {
     let results = document.querySelector(".results");
+
     numbersResult.forEach((generatedNumber) => {
     let newNumber = document.createElement("h1");
+    newNumber.setAttribute("class", "h1animation");
     newNumber.textContent = generatedNumber;
+    results.scrollTop = results.scrollHeight
     results.append(newNumber);
   });
+
+  animationSize = document.getElementsByClassName("h1animation");
+
+  return animationSize
 }
 
 // Captura o submit
@@ -142,8 +152,8 @@ form.addEventListener("submit", (event) => {
   const valueNumbersA = Number(numbersA.value)
   if (valueNumbers === "" || valueNumbers === 0 || valueNumbersA === "" || valueNumbersA === 0) {
       alert("Erro! Por favor, forneça os números.")
-  } else if (valueNumbersA > 999) {
-      alert("Erro!")
+  } else if (valueNumbersA > 10000) {
+      alert("Erro! O limite de números é até 10000")
 
   }
   else {
@@ -157,6 +167,7 @@ form.addEventListener("submit", (event) => {
   createNumbersResult(numbersResult());
 
 
+
   // Captura o novo botão criado dentro da nova MiddleSection
   const newSubmit = document.getElementById("new-submit");
 
@@ -165,6 +176,14 @@ form.addEventListener("submit", (event) => {
     event.preventDefault()
     createNumbersResult(numbersResult())
   })
+  }
+
+  if(valueNumbersDe > 999  || valueNumbersA > 999) {
+    generatedNumber.forEach(element => {
+      /*Aqui eu vou tentar usar um for para mudar o tamanho do resultado
+      pois como ele usa class, retorna um array de elementos, então preciso usar um for para iterar cada elemento*/
+      
+    });
   }
 });
 
