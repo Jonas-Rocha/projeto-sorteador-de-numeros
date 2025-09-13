@@ -181,7 +181,7 @@ form.addEventListener("submit", (event) => {
   if(valueNumbersDe > 999  || valueNumbersA > 999) {
     generatedNumber.forEach(element => {
       /*Aqui eu vou tentar usar um for para mudar o tamanho do resultado
-      pois como ele usa class, retorna um array de elementos, então preciso usar um for para iterar cada elemento*/
+      pois como ele usa class, retorna um array de elementos, então preciso usar um for para iterar cada elemento.*/
       
     });
   }
