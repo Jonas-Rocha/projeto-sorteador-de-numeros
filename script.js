@@ -152,7 +152,7 @@ form.addEventListener("submit", (event) => {
   const valueNumbersA = Number(numbersA.value)
   if (valueNumbers === "" || valueNumbers === 0 || valueNumbersA === "" || valueNumbersA === 0) {
       alert("Erro! Por favor, forneça os números.")
-  } else if (valueNumbersA > 10000) {
+  } else if (valueNumbersA > 10000000) {
       alert("Erro! O limite de números é até 10000")
 
   }
